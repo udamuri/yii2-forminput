@@ -1,0 +1,21 @@
+{
+    "name": "udamuri/yii2-forminput",
+    "description": "yii2 form input",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Muri Budiman",
+            "email": "udamuri@gmail.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "udamuri\\nestablemenu\\": ""
+        }
+    }
+}
