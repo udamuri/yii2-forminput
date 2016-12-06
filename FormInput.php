@@ -43,7 +43,7 @@ class FormInput extends \yii\base\Widget
             $_input = '';
             $model = $arrData['model'];
             $fieldname = $arrData['fieldname'];
-            $label1 =Html::activeLabel($model, 'username');
+            $label1 = strip_tags(Html::activeLabel($model, $fieldname));
             $label2 = '';
             if(isset($arrData['label1']) && isset($arrData['label2']))
             {
@@ -56,10 +56,16 @@ class FormInput extends \yii\base\Widget
                 $InputId = hTML:: getInputId($model, $fieldname);
                 $InputName = hTML:: getInputName($model, $fieldname);
 
-                 $_input = '<div class="input-group"> <div class="form-yii">
+                $checked = '';
+                if(isset($model->$fieldname) && $model->$fieldname != 0)
+                {
+                    $checked = 'checked="checked"';
+                }
+                
+                $_input = '<div class="input-group"> <div class="form-yii">
                     <input name="'.$InputName.'" value="0" type="hidden">
-                    <input id="'.$InputId.'" name="'.$InputName.'" value=""  type="checkbox">
-                    <label for="'.$InputId.'">Remember Me</label>
+                    <input id="'.$InputId.'" name="'.$InputName.'" value="1"  '.$checked.' type="checkbox">
+                    <label for="'.$InputId.'">'.$label1.'</label>
                 </div></div>';
             }
             else if($arrData['type'] == 'radio')
